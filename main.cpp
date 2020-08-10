@@ -7,8 +7,8 @@
 #define N 1000
 #define j 100
 #define len_a 10
-#define l_0 10
-#define f_0 5.0e-30
+#define l_0 30
+#define f_0 1.0e-100
 
 /*void make_a(double *a)
 {
@@ -87,7 +87,7 @@ int main()
 
 
 	FILE* fp0;
-       	fp0 = fopen("l_ni.dat" , "w");
+       	fp0 = fopen("l_ni_6.dat" , "w");
  	if(fp0==NULL){
  		printf("File open faild.");
 	 }
@@ -97,7 +97,9 @@ int main()
 		l_i += 1.0;
 		double n_i=0.0;
 		n_i=N*exp((A_[i]/(2*l_i)) + (f_0*exp(l_i-l_0)/l_i))/Z;
-
+		
+		double c_i =log(n_i);
+		double log_l_i=log(l_i);
 		fprintf(fp0, "%f\t%f\n",l_i,n_i);
 		
 	}
