@@ -9,7 +9,7 @@
 #define len_a 10
 #define l_0 80
 #define f_0 1.0e-12
-#define a 1.94e-19
+#define a 7.76e-19
 #define Kb 1.38e-23
 
 main()
@@ -41,7 +41,7 @@ main()
         }
 
 	Z=0;
-	double kKb=0;
+	double kKb=1.0e-3;
 	double l1_i=0;
 	double zin1;
 	double zin2;
@@ -67,7 +67,7 @@ main()
 
 
 	FILE* fp0;
-       	fp0 = fopen("ni_0.dat" , "w");
+       	fp0 = fopen("ni08_10-3.dat" , "w");
  	if(fp0==NULL){
  		printf("File open faild.");
 	 }
