@@ -7,12 +7,42 @@
 #define N 1000
 #define j 100
 #define len_a 10
-#define l_0 80
-#define f_0 1.0e-12
-#define a 1.94e-19
-#define Kb 1.38e-23
+#define l_0 30
+#define f_0 1.0e-40
 
-main()
+/*void make_a(double *a)
+{
+	double l_i=1;
+	a[0]=1.0;
+	printf("%d\n",a[0]);
+
+
+	for(int i=0; i<9; i++){
+		l_i +=1;
+		for(int k=1+i*len_a; k<1+(1+i)*len_a; k++){
+		a[k]=l_i;
+		printf("%d\n",a[k]);
+		}
+	}
+	for(int m=1+9*len_a; m<j; m++){
+		a[m]=l_i+1.0;
+	}
+	
+}
+*/
+
+/*double make_z(int b[j])
+{
+	double z=0;
+	int l_i=1;
+	for(int i=0; i<j; i++){
+		z=z+exp((b[i]+f_0*exp(l_i-l_0))/l_i);
+		l_i+=1;
+	}
+	return z;
+}*/
+
+int main()
 {
 	double Z;
 	double A_[j];
@@ -41,20 +71,10 @@ main()
         }
 
 	Z=0;
-	double kKb=0;
 	double l1_i=0;
-	double zin1;
-	double zin2;
-	double akb;
-	akb = f_0/Kb;
 	for(int h=0; h<j; h++){
-		//printf("%f\n",Z);
 		l1_i += 1.0;
-		//Z += exp(((N*A_[h])/l1_i) + ((a*f_0)/((1.0+exp(l_0-l1_i))*Kb)));
-		zin1=(N*A_[h]*kKb)/l1_i ;
-	        zin2 =(akb*a)/(1.0+exp(l_0-l1_i));
-		Z += exp(zin1-zin2);
-		//printf("%f\n",Z);
+		Z += exp((A_[h]/(2*l1_i)) + (f_0*exp(l1_i-l_0)/l1_i));
 		//Z +=(A_[h]/l1_i) + (f_0*exp(l1_i-l_0)/l1_i);
 	}
 
@@ -67,7 +87,7 @@ main()
 
 
 	FILE* fp0;
-       	fp0 = fopen("ni_0.dat" , "w");
+       	fp0 = fopen("l_ni_6.dat" , "w");
  	if(fp0==NULL){
  		printf("File open faild.");
 	 }
@@ -76,21 +96,14 @@ main()
 	for(int i=0; i<j; i++){
 		l_i += 1.0;
 		double n_i=0.0;
-
-		zin1=(N*A_[i]*kKb)/l_i ;
-                zin2 =(akb*a)/(1.0+exp(l_0-l_i));
-
-		n_i=N*exp(zin1-zin2)/Z;
+		n_i=N*exp((A_[i]/(2*l_i)) + (f_0*exp(l_i-l_0)/l_i))/Z;
 		
 		double c_i =log(n_i);
 		double log_l_i=log(l_i);
-		double al=A_[i]/l_i;
-
-		//printf("%f",Z);
 		fprintf(fp0, "%f\t%f\n",l_i,n_i);
 		
 	}
 	fclose(fp0);
-	
+
 	return 0;
 }
