@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import scipy.optimize
 
 
-data = np.loadtxt('ni_10-5.dat')
+data = np.loadtxt('kkb1e-0_f0_1e-12_l080.dat')
 
 x = np.arange(1, 101, 1)
 y = data[:,1]
@@ -21,5 +21,5 @@ plt.ylim(0, 50)
 plt.xlim(0, 100)
 
 plt.show()
-fig.savefig("actin_ni_2_10-5.png")
+fig.savefig("y50kkb1e-0_f0_1e-12_l080.png")
 

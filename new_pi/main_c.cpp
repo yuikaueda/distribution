@@ -79,7 +79,7 @@ int main()
 		double n_i=0.0;
 
 		zin1=(A_[i]*kKb)/l_i ;
-                zin2 =(akb*a)/(N+N*exp(l_0-l_i));
+    zin2 =(akb*a)/(N+N*exp(l_0-l_i));
 
 		n_i=N*exp(zin1-zin2)/Z;
 		
