@@ -41,7 +41,7 @@ int main()
         }
 
 	Z=0;
-	double kKb=1e-0;
+	double kKb=9.0e-0;
 	double l1_i=0;  
 	double zin1;
 	double zin2;
@@ -67,7 +67,7 @@ int main()
 
 
 	FILE* fp0;
-       	fp0 = fopen("kkb1e-0_f0_1e-12_l080.dat" , "w");
+       	fp0 = fopen("kkb9e-0_f0_1e-12_l080.dat" , "w");
  	if(fp0==NULL){
  		printf("File open faild.");
 	 }
