@@ -8,7 +8,7 @@
 #define j 100
 #define len_a 10
 #define l_0 80
-#define f_0 1.0e-8
+#define f_0 1.0e-0
 #define a 1.94e-22 //V*mu/(2*T*N)
 #define Kb 1.38e-23
 
@@ -67,7 +67,7 @@ int main()
 
 
 	FILE* fp0;
-       	fp0 = fopen("entro__f0_1e-8_l080.dat" , "w");
+       	fp0 = fopen("nu0.2_entro__f0_1e-0_l080.dat" , "w");
  	if(fp0==NULL){
  		printf("File open faild.");
 	 }
