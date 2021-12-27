@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import scipy.optimize
 
 
-data = np.loadtxt('nu0.8_kkb4e-0_f0_1e-12_l080.dat')
+data = np.loadtxt('kkb6e-0_f0_1e-12_l080.dat')
 
 x = np.arange(1, 101, 1)
 y = data[:,1]
@@ -21,5 +21,5 @@ plt.ylim(0, 200)
 plt.xlim(0, 100)
 
 plt.show()
-fig.savefig("nu0.8_y200kkb4e-0_f0_1e-12_l080.png")
+fig.savefig("y200kkb6e-0_f0_1e-12_l080.png")
 
