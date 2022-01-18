@@ -15,7 +15,7 @@ ax.axes.yaxis.set_ticks([])
 ax.set_yticks([0,7])
 ax.set_yticklabels(['0','$f_0$'], fontsize=16)
 ax.set_xticks([0,6,9])
-ax.set_xticklabels(['0','$l_0$','$2l_0/3$'], fontsize=16)
+ax.set_xticklabels(['0','$l_0$','$3l_0/2$'], fontsize=16)
 #ax.set_xticks([12])
 #ax.set_xticklabels(['$2l_0$'], fontsize=18)
 
@@ -25,6 +25,6 @@ ax.set_ylabel(r'$f$',fontsize=20)
 plt.xlim(0,20)
 
 ax.plot(x,y,color='black')
-fig.savefig("f_fig.png",bbox_inches="tight")
+fig.savefig("re_f_fig.png",bbox_inches="tight")
 plt.show()
 
