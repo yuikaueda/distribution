@@ -7,8 +7,8 @@
 #define N 1000
 #define j 100
 #define len_a 10
-#define l_0 20
-#define f_0 1.0e-0
+#define l_0 80
+#define f_0 1.0e-12
 #define a 1.94e-22 //V*mu/(2*T*N)
 #define Kb 1.38e-23
 
@@ -40,7 +40,7 @@ int main()
         }
         
 	Z=0;
-	double kKb=1e-0;
+	double kKb=8e-0;
 	double l1_i=0;  
 	double zin1;
 	double zin2;
@@ -52,7 +52,7 @@ int main()
 		//Z += exp(((N*A_[h])/l1_i) + ((a*f_0)/((1.0+exp(l_0-l1_i))*Kb)));
 		zin1=(A_[h]*kKb)/l1_i ;
 	  zin2 =(akb*a)/(l1_i+l1_i*exp(l_0-l1_i));
-		Z += exp(-zin2);
+		Z += exp(zin1+zin2);
 		//printf("%f\n",Z);
 		//Z +=(A_[h]/l1_i) + (f_0*exp(l1_i-l_0)/l1_i);
 	}
@@ -66,7 +66,7 @@ int main()
 
 
 	FILE* fp0;
-       	fp0 = fopen("fig12_f01e0_l020.dat" , "w");
+       	fp0 = fopen("fig15_kkb8.dat" , "w");
  	if(fp0==NULL){
  		printf("File open faild.");
 	 }
@@ -79,7 +79,7 @@ int main()
 		zin1=(A_[i]*kKb)/l_i ;
     zin2 =(akb*a)/(l_i+l_i*exp(l_0-l_i));
 
-		n_i=N*exp(-zin2)/Z;
+		n_i=N*exp(zin1+zin2)/Z;
 		
 		double c_i =log(n_i);
 		double log_l_i=log(l_i);
